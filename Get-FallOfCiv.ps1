@@ -7,7 +7,7 @@ $episodePadding = 3
 
 # Should I include season and episode in the filename? What about pubdate? 
 $skipSeasonEpisode = $true
-$includePubDate = $false
+$includePubDate = $true
 
 # === Typically there should be nothing to change past this point ===
 # === Except any changes to the title identifier in the loop below ===
@@ -43,6 +43,12 @@ foreach ($item in $xmlContent.rss.Channel.item) {
     
         # Add a space if either the season or episode exists
         if ($seasonNumber.Length -eq 0 -and $episodeNumber.Length -eq 0) { $spacer = "" } else { $spacer = " " }
+
+    } else {
+        # Initialize these variables coz sometimes I copy paste the scripts
+        $seasonNumber = ""
+        $episodeNumber = ""
+        $spacer = ""
     }
 
     if ($includePubDate) { $pubDate = Get-Date $item.pubDate -Format "yyyyMMddHHmm " } else { $pubDate = "" }

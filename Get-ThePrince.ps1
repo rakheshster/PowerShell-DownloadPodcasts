@@ -44,6 +44,12 @@ foreach ($item in $xmlContent.rss.Channel.item) {
     
         # Add a space if either the season or episode exists
         if ($seasonNumber.Length -eq 0 -and $episodeNumber.Length -eq 0) { $spacer = "" } else { $spacer = " " }
+
+    } else {
+        # Initialize these variables coz sometimes I copy paste the scripts
+        $seasonNumber = ""
+        $episodeNumber = ""
+        $spacer = ""
     }
 
     if ($includePubDate) { $pubDate = Get-Date $item.pubDate -Format "yyyyMMddHHmm " } else { $pubDate = "" }
