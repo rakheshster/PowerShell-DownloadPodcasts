@@ -3,7 +3,7 @@ I listen to the [Empire](https://podcasts.apple.com/gb/podcast/empire/id16395619
 
 Couldn't figure out an easy way of doing this. So I created some PowerShell to do this. It's RSS (XML) after all. Download the feed, parse it, download the episodes and name them how I want. 
 
-Then I expanded it to download some more podcasts I have listened to in the past. The result is what you see in this repo. 
+Then I expanded it to download some more podcasts I have listened to in the past. The result is what you see in this repo. Wrote a [blog post](https://rakhesh.com/powershell/powershell-script-to-download-podcast-episodes/) too.
 
 I ❤️ PowerShell.
 
