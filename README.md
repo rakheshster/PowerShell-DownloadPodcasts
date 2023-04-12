@@ -9,3 +9,5 @@ I ❤️ PowerShell.
 
 # Note
 I try to keep the scripts as similar to each other as possible. In most of them the only change is how I grab the real title from the feed. Additionally I define some variables in the beginning of these scripts that define how I manipulate the title to add a season number, episode number, or publication date. 
+
+This was developed & tested on macOS with PowerShell 7.3.
