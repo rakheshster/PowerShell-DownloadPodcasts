@@ -65,9 +65,11 @@ foreach ($item in $xmlContent.rss.Channel.item) {
 
     # Figure out the output file name
     $outputFile = "${outDir}/${title}.mp3"
+    # This is what the iCloud cached file looks like; skip re-download if I find this
+    $icloudFile = "${outDir}/.${title}.mp3.icloud"
     
     # Check if the output file exists; download if it doesn't
-    if (Test-Path -Path $outputFile) {
+    if ((Test-Path -Path $outputFile) -or (Test-Path -Path $icloudFile)) {
         Write-Host "Skipping $outputFile as it already exists"
     } else {
         Write-Host "Downloading $downloadUrl as $outputFile"
