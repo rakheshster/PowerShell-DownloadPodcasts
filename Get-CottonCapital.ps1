@@ -1,5 +1,5 @@
-$feedUrl = "https://feed.podbean.com/byzantiumandfriends/feed.xml"
-$outDir = $Global:PodcastPath + [IO.Path]::DirectorySeparatorChar + "Byzantinum and Friends"
+$feedUrl = "https://www.theguardian.com/news/series/cotton-capital-podcast/podcast.xml"
+$outDir = $Global:PodcastPath + [IO.Path]::DirectorySeparatorChar + "Cotton Capital"
 
 # Number of digits in the season and episodes
 $seasonPadding = 2
@@ -29,13 +29,11 @@ $xmlContent = [xml]$webRequest.Content
 
 foreach ($item in $xmlContent.rss.Channel.item) {
     # Get the real title from the feed
-    $realTitle = $item.title[0]
-
+    $realTitle = $item.title
+    
     # Replace any spaces at the beginning and end of the title
     # Remove certain characters
     $episodeTitle = $realTitle -replace '[/:]','' -replace '^\s+','' -replace '\s+$',''
-    $episodeTitle = $episodeTitle -replace "^S\d+E\d+ - '",'' -replace "'$",""
-    $episodeTitle = $episodeTitle -replace ',','_' -replace '\.',' -' -replace '\?','_'
 
     # If Season or Episode exists then capture them with some padding
     # Only do this if I haven't set the toggle above to skip
