@@ -29,7 +29,7 @@ $xmlContent = [xml]$webRequest.Content
 
 foreach ($item in $xmlContent.rss.Channel.item) {
     # Get the real title from the feed
-    $realTitle = $item.title
+    $realTitle = $item.title."#cdata-section"
     
     # Replace any spaces at the beginning and end of the title
     # Remove certain characters
